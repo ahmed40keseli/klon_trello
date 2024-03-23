@@ -1,22 +1,23 @@
-// const { sequelize } = require('sequelize');
-const sequelize = require('../database/connection');
-// const User = require('./User');
+// models/board.js
+const { DataTypes } = require('sequelize');
+const sequelize = require('../utility/database');
+const User = require('./user'); // Uncomment if needed
 
 const Board = sequelize.define('board', {
     board_id: {
-        type: sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     title: {
-        type: sequelize.STRING(100),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     description: {
-        type: sequelize.TEXT
+        type: DataTypes.TEXT
     },
     created_by: {
-        type: sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: User,
@@ -24,42 +25,54 @@ const Board = sequelize.define('board', {
         }
     },
     created_at: {
-        type: sequelize.DATE,
-        defaultValue: sequelize.NOW
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
     },
     updated_at: {
-        type: sequelize.DATE,
-        defaultValue: sequelize.NOW,
-        onUpdate: sequelize.NOW
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+        onUpdate: DataTypes.NOW
     }
 });
 
 module.exports = Board;
 
 
+// const { sequelize } = require('sequelize');
 // const Sequelize = require('sequelize');
-
 // const sequelize = require('../utility/database');
+// const User = require('./User');
 
 // const Board = sequelize.define('board', {
-//     id: {
-//         type: Sequelize.INTEGER(25),
-//         autoincrement: true,
-//         allownull: true,
+//     board_id: {
+//         type: sequelize.INTEGER,
 //         primaryKey: true,
+//         autoIncrement: true
 //     },
 //     title: {
-//         type: Sequelize.VARCHAR(255),
-//         autoincrement: true
+//         type: sequelize.STRING(100),
+//         allowNull: false
 //     },
-//     description: Sequelize.TEXT(255),
-//     creator_id: {
-//         type: Sequelize.INTEGER(25),
-//         allownull: false,
+//     description: {
+//         type: sequelize.TEXT
 //     },
-//     // FOREIGN KEY (creator_id) REFERENCES users(user_id)
-
+//     created_by: {
+//         type: sequelize.INTEGER,
+//         allowNull: false,
+//         references: {
+//             model: User,
+//             key: 'user_id'
+//         }
+//     },
+//     created_at: {
+//         type: sequelize.DATE,
+//         defaultValue: sequelize.NOW
+//     },
+//     updated_at: {
+//         type: sequelize.DATE,
+//         defaultValue: sequelize.NOW,
+//         onUpdate: sequelize.NOW
+//     }
 // });
-
 
 // module.exports = Board;
