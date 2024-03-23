@@ -1,4 +1,3 @@
-// models/board.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utility/database');
 const User = require('./user'); // Uncomment if needed
