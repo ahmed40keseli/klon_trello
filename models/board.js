@@ -1,22 +1,22 @@
-const { DataTypes } = require('sequelize');
+// const { sequelize } = require('sequelize');
 const sequelize = require('../database/connection');
-const User = require('./User');
+// const User = require('./User');
 
-const Board = sequelize.define('Board', {
+const Board = sequelize.define('board', {
     board_id: {
-        type: DataTypes.INTEGER,
+        type: sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     title: {
-        type: DataTypes.STRING(100),
+        type: sequelize.STRING(100),
         allowNull: false
     },
     description: {
-        type: DataTypes.TEXT
+        type: sequelize.TEXT
     },
     created_by: {
-        type: DataTypes.INTEGER,
+        type: sequelize.INTEGER,
         allowNull: false,
         references: {
             model: User,
@@ -24,18 +24,17 @@ const Board = sequelize.define('Board', {
         }
     },
     created_at: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
+        type: sequelize.DATE,
+        defaultValue: sequelize.NOW
     },
     updated_at: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-        onUpdate: DataTypes.NOW
+        type: sequelize.DATE,
+        defaultValue: sequelize.NOW,
+        onUpdate: sequelize.NOW
     }
 });
 
 module.exports = Board;
-
 
 
 // const Sequelize = require('sequelize');
