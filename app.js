@@ -1,16 +1,13 @@
 const express = require("express");
 
-
 const sequelize = require('./utility/database');
 
 const app = express();
 
-
-sequelize
-    .sync()
+sequelize.sync()
     .then(result => {
         console.log(result);
-        app.listen(5006)
+        app.listen(5009)
     })
     .catch(err=>{
         console.log(err);
