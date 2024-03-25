@@ -1,12 +1,13 @@
-const  Sequelize  = require('sequelize');
+const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('trello-db', 'root', 'Ah123?kkk', {
-    host: 'localhost',
+const sequelize = new Sequelize('node-app-trellodb', 'root', 'Ah123?kkk', {
     dialect: 'mysql',
-    define: {
-        timestamps: true,
-        underscored: true
-    }
+    host: 'localhost',
 });
 
 module.exports = sequelize;
+
+// define: {
+//     timestamps: true,
+//     underscored: true
+// }

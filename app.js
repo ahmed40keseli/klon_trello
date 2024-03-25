@@ -1,14 +1,22 @@
 const express = require("express");
+const app = express();
 
+// const bodyParser = require('body-parser');
+
+const errorController = require('./controllers/errors');
 const sequelize = require('./utility/database');
 
-const app = express();
+app.use(errorController.get404Page);
+
 
 sequelize.sync()
     .then(result => {
         console.log(result);
-        app.listen(5009)
     })
-    .catch(err=>{
+    .catch(err => {
         console.log(err);
     });
+
+app.listen(3000, () => {
+    console.log('listening...')
+})
