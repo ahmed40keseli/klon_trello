@@ -1,10 +1,11 @@
-const express = require("express");
-const app = express();
+// const express = require("express");
+// const app = express();
 
-const errorController = require('./controllers/errors');
-const sequelize = require('./utility/database');
+const sequelize = require('./util/database');
 
-app.use(errorController.get404Page);
+const board = require("./models/board");
+const user = require("./models/user");
+
 
 
 sequelize.sync()
@@ -15,6 +16,6 @@ sequelize.sync()
         console.log(err);
     });
 
-app.listen(3000, () => {
-    console.log('listening...')
-})
+// app.listen(3000, () => {
+//     console.log('listening...')
+// })

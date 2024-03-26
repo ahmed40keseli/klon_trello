@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize('node-app-trellodb', 'root', 'Ah123?kkk', {
     dialect: 'mysql',
