@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 
 // CREATE TABLE lists (
 //     list_id INT AUTO_INCREMENT PRIMARY KEY,
