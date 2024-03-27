@@ -1,12 +1,48 @@
-// const Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
+const sequelize = require('../util/database');
+const List = require('./list'); 
 
-// CREATE TABLE cards (
-//     card_id INT AUTO_INCREMENT PRIMARY KEY,
-//     title VARCHAR(255) NOT NULL,
-//     description TEXT,
-//     list_id INT NOT NULL,
-//     position INT,
-//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-//     FOREIGN KEY (list_id) REFERENCES lists(list_id)
-// );
+const Card = sequelize.define('Card', {
+    card_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    title: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+    },
+    description: {
+        type: Sequelize.TEXT
+    },
+    list_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: List,
+            key: 'list_id'
+        }
+    },
+    position: {
+        type: Sequelize.INTEGER,
+        allowNull: true 
+    },
+    created_at: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
+        allowNull: false
+    },
+    updated_at: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
+        allowNull: false,
+        onUpdate: Sequelize.NOW
+    }
+}, {
+    timestamps: false, 
+    underscored: true 
+});
+
+Card.belongsTo(List, { foreignKey: 'list_id' });
+
+module.exports = Card;
