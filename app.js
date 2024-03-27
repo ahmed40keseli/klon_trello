@@ -3,10 +3,8 @@
 
 const sequelize = require('./util/database');
 
-const board = require("./models/board");
-const user = require("./models/user");
-
-
+const User = require("./models/user");
+const Board = require('./models/board');
 
 sequelize.sync()
     .then(result => {
