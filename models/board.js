@@ -7,7 +7,6 @@ const Board = sequelize.define('board', {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: true
     },
     title: {
         type: Sequelize.STRING(100),
@@ -20,7 +19,7 @@ const Board = sequelize.define('board', {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: 'user',
+            model: User,
             key: 'user_id'
         }
     },

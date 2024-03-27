@@ -1,10 +1,11 @@
-// const express = require("express");
-// const app = express();
+const express = require("express");
+const app = express();
 
 const sequelize = require('./util/database');
 
 const User = require("./models/user");
 const Board = require('./models/board');
+const List = require('./models/list');
 
 sequelize.sync()
     .then(result => {

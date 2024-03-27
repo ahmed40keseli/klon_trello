@@ -1,6 +1,5 @@
-// list.js
 const Sequelize =require('sequelize');
-const sequelize = require('../utility/database');
+const sequelize = require('../util/database');
 const Board = require('./board');
 
 const List = sequelize.define('List', {
@@ -17,13 +16,13 @@ const List = sequelize.define('List', {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: 'Board', // Referencing the Board model
+            model: Board,
             key: 'board_id'
         }
     },
     position: {
         type: Sequelize.INTEGER,
-        allowNull: true // Assuming position is optional
+        allowNull: true 
     },
     created_at: {
         type: Sequelize.DATE,
@@ -37,11 +36,10 @@ const List = sequelize.define('List', {
         onUpdate: Sequelize.NOW
     }
 }, {
-    timestamps: false, // Disable Sequelize timestamps as we have our own timestamps
-    underscored: true // Use underscored naming for table and column names
+    timestamps: false, 
+    underscored: true 
 });
 
-// Define foreign key constraint
 List.belongsTo(Board, { foreignKey: 'board_id' });
 
 module.exports = List;
