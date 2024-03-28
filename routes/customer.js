@@ -1,25 +1,28 @@
-// const express = require('express'); 
+const express = require('express'); 
+const router = express.Router(); 
+const customerController = require('../controllers/customer'); 
 
-// const router = express.Router(); 
 
-// const shopController = require('../controllers/shop'); 
+router.get('/register', customerController.getAddUser)
 
-// router.get('/', shopController.getIndex); 
+router.post('/register', customerController.postAddUser)
 
-// router.get('/products', shopController.getProducts); 
+// router.get('/', customerController.getIndex); 
 
-// router.get('/products/:productid', shopController.getProduct);
+// router.get('/products', customerController.getProducts); 
 
-// router.get('/categories/:categoryid', shopController.getProduc);
+// router.get('/products/:productid', customerController.getProduct);
 
-// router.get('/cart', shopController.getCart); 
+// router.get('/categories/:categoryid', customerController.getProduc);
 
-// router.post('/cart', shopController.postCart);  
+// router.get('/cart', customerController.getCart); 
 
-// router.post('/delete-cartitem', shopController.postCartItemDelete);
+// router.post('/cart', customerController.postCart);  
 
-// router.get('/orders', shopController.getOrders);
+// router.post('/delete-cartitem', customerController.postCartItemDelete);
 
-// router.post('/create-order', shopController.postOrder);
+// router.get('/orders', customerController.getOrders);
 
-// module.exports = router; 
+// router.post('/create-order', customerController.postOrder);
+
+module.exports = router; 

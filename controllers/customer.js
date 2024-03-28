@@ -17,7 +17,7 @@ exports.postAddBoard = (req,res,next) => {
     })
     .then((result) => {
         console.log(result);
-        res.redirect('/');
+        // res.redirect('/');
     })
     .catch((err) => {
         console.log(err);
@@ -37,8 +37,9 @@ exports.postAddUser = (req,res,next) =>{
     })
     .then((result) => {
         console.log(result);
-        res.redirect('/');
+        res.send('success')
     }).catch((err) => {
-        console.log(result);
+        console.log(err);
+        res.send('noting')
     });
 }

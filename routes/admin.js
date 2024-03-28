@@ -3,7 +3,13 @@
 
 // const adminController = require('../controllers/admin');
 
-// router.get('/products', adminController.getProducts); 
+// router.get('/register', (req, res) => {
+//     res.render('registration_form');
+// })
+
+// router.get('/register', adminController.getAddUser)
+
+// router.post('/register', adminController.postAddUser)
 
 // router.get('/add-product', adminController.getAddProduct); 
 
@@ -15,4 +21,4 @@
 
 // router.post('/delete-product', adminController.postDeleteProduct); 
 
-// module.exports = router; 
+// module.exports = router;     
