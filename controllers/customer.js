@@ -43,3 +43,44 @@ exports.postAddUser = (req,res,next) =>{
         res.send('noting')
     });
 }
+
+exports.postAddList = (req,res,next) =>{
+    const title = req.body.title;
+    const board_id = req.body.board_id;
+    const position = req.body.position;
+
+    List.create({
+        title:title,
+        board_id:board_id,
+        position:position
+    })
+    .then((result)=>{
+        console.log(result)
+        res.send('success')
+    }).catch((err)=>{
+        console.log(err);
+        res.send('nothing')
+    });
+}
+
+exports.postAddCard = (req,res,next) =>{
+    const title = req.body.title;
+    const description = req.body.description;
+    const list_id = req.body.list_id;
+    const position = req.body.position;
+
+    List.create({
+        title:title,
+        description:description,
+        list_id:list_id,
+        position:position
+    })
+    .then((result)=>{
+        console.log(result)
+        res.send('success')
+    }).catch((err)=>{
+        console.log(err);
+        res.send('nothing')
+    })
+
+}

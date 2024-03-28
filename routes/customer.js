@@ -3,9 +3,13 @@ const router = express.Router();
 const customerController = require('../controllers/customer'); 
 
 
-router.get('/register', customerController.getAddUser)
+router.get('/register', customerController.postAddBoard)
 
 router.post('/register', customerController.postAddUser)
+
+router.post('/register', customerController.postAddList)
+
+router.post('/register', customerController.postAddCard)
 
 // router.get('/', customerController.getIndex); 
 
