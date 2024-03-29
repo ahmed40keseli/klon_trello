@@ -69,7 +69,7 @@ exports.postAddCard = (req,res,next) =>{
     const list_id = req.body.list_id;
     const position = req.body.position;
 
-    List.create({
+    Card.create({
         title:title,
         description:description,
         list_id:list_id,
