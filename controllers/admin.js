@@ -40,7 +40,9 @@ exports.postAddUser = (req,res,next) =>{
     })
     .then((result) => {
         console.log(result);
-        res.send('success')
+        // let body = _.pick(req.body,"username")
+        // let welcome=(`${body} hoşgeldiniz`)
+        res.send("welcome")
         // res.redirect('/');
     }).catch((err) => {
         console.log(err);

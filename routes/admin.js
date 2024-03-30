@@ -3,8 +3,6 @@ const router = express.Router();
 
 const adminController = require('../controllers/admin');
 
-// router.get('/register', adminController.getAddUser)
-
 router.post('/register', adminController.postAddUser)
 
 // router.get('/add-product', adminController.getAddProduct); 
