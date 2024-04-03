@@ -21,10 +21,14 @@ exports.postAddBoard = (req,res,next) => {
     })
     .then((result) => {
         console.log(result);
+        res.send('success')
+
         // res.redirect('/');
     })
     .catch((err) => {
         console.log(err);
+        res.send('nothing')
+
     });
 }
 

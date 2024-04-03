@@ -30,27 +30,6 @@ exports.postAddBoard = (req,res,next) => {
     });
 }
 
-exports.postSearchUser = (req,res,next) => {
-
-    const username = req.body.username;
-    const email = req.body.email;
-
-    User.Search({
-        username:username,
-        email:email,
-    })
-    .then((result) => {
-        console.log(result);
-        res.send("welcome")
-        // res.redirect('/');
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send('noting')
-
-    });
-}
-
 exports.postAddUser = (req,res,next) =>{
 
     const username = req.body.username;
@@ -73,6 +52,17 @@ exports.postAddUser = (req,res,next) =>{
         res.send('noting')
     });
 }
+
+// exports.postSearchUser = (req,res,next) => {
+
+//     User.findAll({where:{uname:req.params.username,email:req.params.email}})
+//     .then(users => {
+//         User:users[1],
+//         res.send(User.user_id)
+//     }).catch((err) => {
+        
+//     });
+// }
 
 exports.postAddList = (req,res,next) =>{
     const title = req.body.title;
