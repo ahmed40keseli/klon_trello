@@ -3,13 +3,15 @@ const router = express.Router();
 const customerController = require('../controllers/customer'); 
 
 
-router.get('/register', customerController.postAddBoard)
+router.get('/BoardAdd', customerController.postAddBoard);
 
-router.post('/register', customerController.postAddUser)
+router.post('/register', customerController.postAddUser);
 
-router.post('/register', customerController.postAddList)
+router.post('/ListAdd', customerController.postAddList);
 
-router.post('/register', customerController.postAddCard)
+router.post('/CardAdd', customerController.postAddCard);
+
+module.exports = router; 
 
 // router.get('/', customerController.getIndex); 
 
@@ -29,4 +31,3 @@ router.post('/register', customerController.postAddCard)
 
 // router.post('/create-order', customerController.postOrder);
 
-module.exports = router; 

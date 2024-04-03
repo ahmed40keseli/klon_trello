@@ -20,10 +20,34 @@ exports.postAddBoard = (req,res,next) => {
     })
     .then((result) => {
         console.log(result);
+        res.send("welcome")
         // res.redirect('/');
     })
     .catch((err) => {
         console.log(err);
+        res.send('noting')
+
+    });
+}
+
+exports.postSearchUser = (req,res,next) => {
+
+    const username = req.body.username;
+    const email = req.body.email;
+
+    User.Search({
+        username:username,
+        email:email,
+    })
+    .then((result) => {
+        console.log(result);
+        res.send("welcome")
+        // res.redirect('/');
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send('noting')
+
     });
 }
 
