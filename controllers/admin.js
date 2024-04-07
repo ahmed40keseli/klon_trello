@@ -53,17 +53,6 @@ exports.postAddUser = (req,res,next) =>{
     });
 }
 
-// exports.postSearchUser = (req,res,next) => {
-
-//     User.findAll({where:{uname:req.params.username,email:req.params.email}})
-//     .then(users => {
-//         User:users[1],
-//         res.send(User.user_id)
-//     }).catch((err) => {
-        
-//     });
-// }
-
 exports.postAddList = (req,res,next) =>{
     const title = req.body.title;
     const board_id = req.body.board_id;
